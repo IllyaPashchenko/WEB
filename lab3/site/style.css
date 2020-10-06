@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+.upper_block {
+    width: 100%;
+    height: 75px;
+    background-color: green;
+}
+
+.body_container {
+    display: table;
+    width: 100%;
+}
+
+.body_row {
+    display: table-row;
+}
+
+.item_wrapper {
+    display: table-cell;
+    height: 400px;
+    padding: 5px;
+}
+
+.item {
+    background-color: #098765;
+    width: 100%;
+    height: 100%;
+}

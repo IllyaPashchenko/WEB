@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Розмітка сторінки за допомогою плаваючих блоків</title>
+</head>
+<body>
+<h3>Розмітка сторінки за допомогою плаваючих блоків</h3>
+<a href="./lab3/variant_layout/index.html">До макета</a> <br>
+<img src="./lab3/report/images/screenshot_variant_layout.png" style="width: 100%">
+<h3>HTML</h3>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Плаваючи блоки&lt;/title&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="a"&gt;
+    &lt;div id="a_a"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="b"&gt;&lt;/div&gt;
+&lt;div id="c"&gt;
+    &lt;div id="c_a"&gt;&lt;/div&gt;
+    &lt;div id="c_a_a"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="d"&gt;&lt;/div&gt;
+&lt;div id="e"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h3>CSS</h3>
+<pre>
+<code>
+#a{
+    background: #ffff00;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #000000;
+}
+#a_a{
+    position: relative;
+    height: 15px;
+    top: 10px;
+    left: 10px;
+    width: 40%;
+    background: #ffffff;
+    border: 1px solid #000000;
+}
+#b{
+    position: relative;
+    float: left;
+    background-color: #00f;
+    border: 1px solid #000;
+    height: 300px;
+    width: 30%;
+}
+#c{
+    float: left;
+    position: relative;
+    height: 280px;
+    width: 35%;
+    background: darkmagenta;
+    margin: 1%;
+}
+#c_a{
+    border: 1px solid grey;
+    height: 250px;
+    background: white;
+    float: top;
+}
+#c_a_a{
+    float: top;
+    border: 1px solid black;
+    height: 30px;
+    background: red;
+}
+#d{
+    float: left;
+    background-color: blue;
+    border: 1px solid black;
+    width: 30%;
+    height: 280px;
+    margin: 1%;
+}
+#e{
+    float: left;
+    border: 1px solid black;
+    background: yellow;
+    height: 40px ;
+    width: 100%;
+}
+</code>
+</pre>
+</body>
+</html>
