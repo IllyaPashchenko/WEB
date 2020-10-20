@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Система URL</title>
+</head>
+<body>
+<h3>Система URL</h3>
+<p>Динамічно створене гіпер-посилання яке виконує скрипт мовою JavaScript при натисканні</p>
+<pre>
+<code>
+let ref = document.createElement("a");
+ref.href = "#";
+ref.text = "Clear";
+ref.addEventListener("click", function () {
+    input_text.value = "";
+    result.textContent = "";
+});
+
+document.body.insertBefore(ref, result)
+</code>
+</pre>
+</body>
+</html>

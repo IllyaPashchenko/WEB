@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обробник подій</title>
+</head>
+<body>
+<h3>Обробник подій</h3>
+<p>
+    Скрипт виконується коли відбувається певна подія.<br>
+    Приклад з обробником події "keyup"
+</p>
+<pre>
+<code>
+let input_text = document.getElementById("input");
+let result = document.getElementById("result_feed")
+input_text.addEventListener("keyup", function () {
+    result.innerText = input_text.value.toUpperCase().split("").reverse().join("")
+});
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Способи використання</title>
+</head>
+<body>
+<h3>Способи функціонально застосування JavaScript</h3>
+<a href="./lab4/lab4task1.html">До сторінки</a>
+<h4>Зовнішній вигляд сторінки</h4>
+<img src="./lab4/report/images/task1screenshot.png" style="width: 100%">
+<h4>Код</h4>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Task 1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;input type="text" id="input" style="width: 600px"&gt;
+&lt;div id="result_feed"&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+    let text = "clear"
+    let input_text = document.getElementById("input");
+    let result = document.getElementById("result_feed")
+    input_text.addEventListener("keyup", function () {
+        result.innerText = input_text.value.toUpperCase().split("").reverse().join("")
+    });
+
+    let ref = document.createElement("a");
+    ref.href = "#";
+    ref.text = "Clear";
+    ref.addEventListener("click", function () {
+        input_text.value = "";
+        result.textContent = "";
+    });
+
+    document.body.insertBefore(ref, result)
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+</body>
+</html>
