@@ -77,5 +77,103 @@ button.addEventListener("click", function () {
 </code>
 </pre>
 <h3>Арсенюк Дмитро</h3>
+<a href="./lab4/ars/task6p/task6.html">Посилання до сторінки</a>
+<img src="./lab4/report/images/ars_task6.png" style="width: 50%">
+<h3>HTML</h3>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="menu.css"&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Task 6&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="upper_menu"&gt;
+&lt;/div&gt;
+&lt;SCRIPT src="task6scritpt.js"&gt;&lt;/SCRIPT&gt;
+&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h3>JS</h3>
+<pre>
+<code>
+    let array1=["a","a.html","b","b.html","c",["a","ca.html","b",["a","cba.html","b","cbb.html"]]]
+let doc=document.getElementById("upper_menu");
+
+let res ="&lt;ul class=\"menu\"&gt;"
+    func(array1);
+    doc.innerHTML +=res;
+
+    function func(arr){
+    for (i=0; i&lt;arr.length;i+=2){
+    if(Array.isArray(arr[i+1])){
+    res += "&lt;li&gt;&lt;a href=\"#\"&gt;"+arr[i]+"&lt;/a&gt;"
+        res +="&lt;ul&gt;"
+            func(arr[i+1]);
+            res +="&lt;/li&gt;"
+            }
+            else {
+            res += "&lt;li&gt;&lt;a href=\""+arr[i+1]+"\"&gt;"+arr[i]+"&lt;/a&gt;&lt;/li&gt;";
+            }
+            }
+            res +="&lt;/ul&gt;"
+        }
+
+    </code>
+</pre>
+<h3>CSS</h3>
+<pre>
+<code>
+
+.menu,.menu ul,.menu li,.menu a {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    list-style: none;
+    display: block;
+    position: relative;
+}
+.menu ul {
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+}
+.menu li:hover > ul {
+    left: 0;
+    opacity: 1;
+    background-color: #099620;
+}
+.menu ul li:hover > ul {
+    top: 0;
+    left: 100%;
+    background-color: #334433;
+}
+.menu li {
+    float: left;
+}
+.menu ul li {
+    float: none;
+}
+
+.menu ul {
+    min-width: 12em;
+    background-color: #225555;
+}
+.menu a {
+    padding: 0 10px;
+    color: #5BC0DE;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+
+        </code>
+</pre>
 </body>
 </html>

@@ -90,5 +90,103 @@ function insertion_sort(array) {
 </code>
 </pre>
 <h3>Арсенюк Дмитро</h3>
+<a href="./lab4/ars/task4.html">Посилання до сторінки</a>
+<img src="./lab4/report/images/ars_task4.png" style="width: 50%;">
+<h3>HTML</h3>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Task 4&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Введіть розмір масиву&lt;/p&gt;
+&lt;input id="input" type="text"&gt;
+&lt;input id="confirm_bt" type="button" value="Підтвердити"&gt;
+&lt;div id="result"&gt;
+&lt;/div&gt;
+&lt;script src="task4script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h3>JS</h3>
+<pre>
+<code>
+let input = document.getElementById("input");
+let button = document.getElementById("confirm_bt");
+let result_feed = document.getElementById("result");
+
+button.addEventListener("click", function () {
+    result_feed.innerHTML = "<br>____________________________________________";
+    let array = createArrayRandom(input.value);
+    let max = find_max(array);
+    let min = find_min(array);
+    let sum = find_sum(array);
+    let dob = find_dob(array);
+    let sort=find_sort(array);
+    result_feed.innerHTML += "<br>Початковий масив: " + array.join(", ");
+    result_feed.innerHTML += "<br>";
+    result_feed.innerHTML += "<br>Максимальний елемент: " + max[1];
+    result_feed.innerHTML += "<br>Індекс максимального елементу серед додатніх: " + max[0];
+    result_feed.innerHTML += "<br>";
+    result_feed.innerHTML += "<br>Мінімальний з непарним індексом: " + min[1];
+    result_feed.innerHTML += "<br>Його індекс серед елементів з непарними індексами: " + min[0];
+    result_feed.innerHTML += "<br>";
+    result_feed.innerHTML += "<br>Сума елементів з парними індексами: " + sum;
+    result_feed.innerHTML += "<br>";
+    result_feed.innerHTML += "<br>Добуток від'ємних елементів: " + dob;
+    result_feed.innerHTML += "<br>";
+    result_feed.innerHTML += "<br>Відсортований: " + sort.join(", ");
+});
+
+function createArrayRandom(amount) {
+    let arr = [];
+    while (arr.length < amount) {
+        let r = Math.floor(Math.random() * amount * 6) - amount*3;
+        arr.push(r);
+        console.log(arr);
+    }
+    return arr;
+}
+
+function find_max(array) {
+    let a=JSON.parse(JSON.stringify(array));
+    let a1 = a.filter(i => i > 0);
+    let max = a.sort((a, b) => (b - a))[0];
+    return [a1.indexOf(max), max];
+}
+
+function find_min(array) {
+    let a=JSON.parse(JSON.stringify(array));
+     let a1= a.filter((item, index) => index % 2 !== 0);
+     let min = a.filter((item, index) => index % 2 !== 0).sort((a, b) => (a - b))[0];
+     return [a1.indexOf(min), min];
+}
+
+function find_sort(array) {
+    let a=JSON.parse(JSON.stringify(array));
+    return a.sort((a, b) => (a - b)).reverse();
+}
+
+function find_sum(array) {
+    let a=JSON.parse(JSON.stringify(array));
+    let a1= a.filter((item, index) => index % 2 === 0);
+    let sum = 0;
+    a1.forEach(element => sum += element);
+    return sum;
+}
+
+function find_dob(array) {
+    let a=JSON.parse(JSON.stringify(array));
+    let a1= a.filter(i => i < 0);
+    let dob = 1;
+    a1.forEach(element => dob *= element);
+    return dob;
+}
+</code>
+</pre>
 </body>
 </html>
