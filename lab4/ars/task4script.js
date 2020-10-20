@@ -3,14 +3,13 @@ let button = document.getElementById("confirm_bt");
 let result_feed = document.getElementById("result");
 
 button.addEventListener("click", function () {
-    result_feed.innerHTML = "";
+    result_feed.innerHTML = "<br>____________________________________________";
     let array = createArrayRandom(input.value);
     let max = find_max(array);
     let min = find_min(array);
     let sum = find_sum(array);
     let dob = find_dob(array);
     let sort=find_sort(array);
-    result_feed.innerHTML += "<br>------------------------------------------";
     result_feed.innerHTML += "<br>Початковий масив: " + array.join(", ");
     result_feed.innerHTML += "<br>";
     result_feed.innerHTML += "<br>Максимальний елемент: " + max[1];
