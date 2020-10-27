@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#menu" ).menu();
+        } );
+    </script>
+    <style>
+        .ui-menu { width: 150px; }
+    </style>
+</head>
+<body>
+
+<ul id="menu">
+    <li><div>1</div></li>
+    <li><div>2</div>
+        <ul>
+            <li><div>2.1</div></li>
+            <li><div>2.2</div></li>
+            <li><div>2.3</div></li>
+            <li><div>2.4</div></li>
+        </ul>
+    </li>
+    <li><div>3</div>
+        <ul>
+            <li><div>3.1</div></li>
+            <li><div>3.2</div>
+                <ul>
+                    <li><div>3.2.1</div></li>
+                    <li><div>3.2.2</div></li>
+                    <li><div>3.2.3</div></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>
