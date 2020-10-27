@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Слайдер фотографій</title>
+</head>
+<body>
+<h3>Слайдер фотографій</h3>
+<img src="./lab5/report_images/photo_slider_screen.png" style="width: 50%"> <br>
+<a href="./lab5/photo_slider.html">До сторінки</a>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Photo slider&lt;/title&gt;
+
+    &lt;script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'&gt;&lt;/script&gt;
+    &lt;script type='text/javascript' src='unitegallery-master/dist/js/unitegallery.min.js'&gt;&lt;/script&gt;
+
+    &lt;link rel='stylesheet' href='unitegallery-master/dist/css/unite-gallery.css' type='text/css' /&gt;
+    &lt;script src='unitegallery-master/dist/themes/slider/ug-theme-slider.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;link rel='stylesheet' href='unitegallery-master/dist/themes/default/ug-theme-default.css' type='text/css' /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="gallery" style="display:none;"&gt;
+
+    &lt;img alt="Image 1 Title" src="images/photo1thumbnail.png"
+         data-image="images/photo1.jpg"
+         data-description="Image 1 Description"&gt;
+
+    &lt;img alt="Image 2 Title" src="images/photo2thumbnail.png"
+         data-image="images/photo2.jpg"
+         data-description="Image 2 Description"&gt;
+
+    &lt;img alt="Image 3 Title" src="images/photo3thumbnail.png"
+         data-image="images/photo3.jpg"
+         data-description="Image 2 Description"&gt;
+
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+    $(document).ready(function(){
+        $("#gallery").unitegallery({
+            gallery_theme: "slider"
+        });
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+</body>
+</html>

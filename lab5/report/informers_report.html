@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Інформери</title>
+</head>
+<body>
+<h3>Інформери</h3>
+<img src="./lab5/report_images/informers_screen.png" style="width: 50%;"> <br>
+<a href="./lab5/6Task.html">До сторінки</a>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Інформери&lt;/title&gt;
+    &lt;link type="text/css" rel="stylesheet" href="UAfin.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!--Курс Валют--&gt;
+&lt;div id="IUAfinance30"&gt;
+    &lt;div class="IUAfinance_block" id="IUAfinanceBlock"&gt;
+        &lt;h1 class="IUAfinance_title" id="IUAfinanceTitle"&gt;&lt;/h1&gt;
+        &lt;a href="//finance.i.ua/informers/" target="_blank" class="IUAfinance_content" id="IUAfinanceContent"&gt;&lt;/a&gt;
+        &lt;a href="" id="IUAfinanceLink"&gt;Курсы доллара, евро и рубля по банкам&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    var $container = document.getElementById("IUAfinance30");
+    $container.style.width = "%";
+    $container.querySelector(".IUAfinance_block").style.backgroundColor = "rgb(204, 204, 204)";
+    $container.querySelector(".IUAfinance_block").style.borderColor = "rgb(0, 0, 0)";
+    $container.querySelector(".IUAfinance_block").style.color = "rgb(0, 102, 0)";
+    $container.querySelector(".IUAfinance_content").style.backgroundColor = "rgb(204, 255, 204)";
+    $container.querySelector(".IUAfinance_title").style.color = "rgb(0, 0, 0)";
+    $container.querySelector("#IUAfinanceLink").style.color = "rgb(0, 0, 0)";&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    if (typeof (iFinance) == "undefined") {
+        if (typeof (iFinanceData) == "undefined") {
+            document.write('&lt;scr' + 'ipt src="//i.i.ua/js/i/finance_informer.js?1" type="text/javascript" charset = "windows-1251"&gt;&lt;/scr' + 'ipt&gt;');
+            iFinanceData = [];
+        }
+        iFinanceData.push({b: 15, c: [840, 978, 643], enc: 2, lang: 0, p: 30, ver2: true});
+    } else {
+        window['oiFinance30'] = new iFinance(2);
+        window['oiFinance30'].gogo({b: 15, c: [840, 978, 643], enc: 2, lang: 0, p: 30});
+    }
+&lt;/script&gt;
+
+&lt;!--Погода--&gt;
+&lt;div id="SinoptikInformer" style="width:240px;" class="SinoptikInformer type1c1"&gt;
+    &lt;div class="siHeader"&gt;
+        &lt;div class="siLh"&gt;
+            &lt;div class="siMh"&gt;&lt;a onmousedown="siClickCount();" class="siLogo" href="https://sinoptik.ua/"
+                                 target="_blank" rel="nofollow" title="Погода"&gt; &lt;/a&gt;Погода &lt;span id="siHeader"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="siBody"&gt;&lt;a onmousedown="siClickCount();" href="https://sinoptik.ua/погода-киев" title="Погода в Киеве"
+                           target="_blank"&gt;
+        &lt;div class="siCity"&gt;
+            &lt;div class="siCityName"&gt;&lt;span&gt;Киев&lt;/span&gt;&lt;/div&gt;
+            &lt;div id="siCont0" class="siBodyContent"&gt;
+                &lt;div class="siLeft"&gt;
+                    &lt;div class="siTerm"&gt;&lt;/div&gt;
+                    &lt;div class="siT" id="siT0"&gt;&lt;/div&gt;
+                    &lt;div id="weatherIco0"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="siInf"&gt;&lt;p&gt;влажность: &lt;span id="vl0"&gt;&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;давление: &lt;span id="dav0"&gt;&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;ветер: &lt;span id="wind0"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+        &lt;div class="siLinks"&gt;Погода на 10 дней от &lt;a href="https://sinoptik.ua/погода-киев/10-дней"
+                                                     title="Погода на 10 дней" target="_blank"
+                                                     onmousedown="siClickCount();"&gt;sinoptik.ua&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="siFooter"&gt;
+        &lt;div class="siLf"&gt;
+            &lt;div class="siMf"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" charset="UTF-8"
+        src="//sinoptik.ua/informers_js.php?title=4&amp;wind=3&amp;cities=303010783&amp;lang=ru"&gt;&lt;/script&gt;
+&lt;!--Годинник--&gt;
+&lt;script type="text/javascript"&gt; var css_file = document.createElement("link");
+css_file.setAttribute("rel", "stylesheet");
+css_file.setAttribute("type", "text/css");
+css_file.setAttribute("href", "//s.bookcdn.com//css/cl/bw-cl-180x170r4.css");
+document.getElementsByTagName("head")[0].appendChild(css_file); &lt;/script&gt;
+&lt;div id="tw_14_507350087"&gt;
+    &lt;div style="width:145px; height:50px; margin: 0 auto;"&gt;&lt;a href="https://nochi.com/time/kiev-18881"&gt;Киев&lt;/a&gt;&lt;br/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt; function setWidgetData_507350087(data) {
+    if (typeof (data) != 'undefined' && data.results.length &gt; 0) {
+        for (var i = 0; i &lt; data.results.length; ++i) {
+            var objMainBlock = '';
+            var params = data.results[i];
+            objMainBlock = document.getElementById('tw_' + params.widget_type + '_' + params.widget_id);
+            if (objMainBlock !== null) objMainBlock.innerHTML = params.html_code;
+        }
+    }
+}
+
+var clock_timer_507350087 = -1; &lt;/script&gt;
+&lt;script type="text/javascript" charset="UTF-8"
+        src="https://widgets.booked.net/time/info?ver=2&domid=589&type=14&id=507350087&scode=124&city_id=18881&wlangid=20&mode=2&details=0&background=ffffff&color=e6e6e6&add_background=ffffff&add_color=e6e6e6&head_color=ffffff&border=0&transparent=0"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+</body>
+</html>
