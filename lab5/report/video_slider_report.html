@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Слайдер відеоматеріалів</title>
+</head>
+<body>
+<h3>Слайдер відеоматеріалів</h3>
+<img src="./lab5/report_images/video_slider_screen.png" style="width: 50%"> <br>
+<a href="./lab5/video_slider.html">До сторінки</a>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Video slider&lt;/title&gt;
+    &lt;script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'&gt;&lt;/script&gt;
+    &lt;script type='text/javascript' src='unitegallery-master/dist/js/unitegallery.min.js'&gt;&lt;/script&gt;
+
+    &lt;link rel='stylesheet' href='unitegallery-master/dist/css/unite-gallery.css' type='text/css' /&gt;
+    &lt;script src='unitegallery-master/dist/themes/slider/ug-theme-slider.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;link rel='stylesheet' href='unitegallery-master/dist/themes/default/ug-theme-default.css' type='text/css' /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="gallery" style="display:none;"&gt;
+
+    &lt;img alt="Costa Rica"
+         data-type="youtube"
+         src="images/video1thumbnail.png"
+         data-image="images/video1big.png"
+         data-videoid="LXb3EKWsInQ"
+         data-description="Youtube video description"&gt;
+
+    &lt;img alt="Bulgaria"
+         data-type="youtube"
+         src="images/video2thumbnail.png"
+         data-image="images/video2big.png"
+         data-videoid="N1-Jmq7BLFE"
+         data-description="Youtube video description"&gt;
+
+    &lt;img alt="Morocco"
+         data-type="youtube"
+         src="images/video3thumbnail.png"
+         data-image="images/video3big.png"
+         data-videoid="hVvEISFw9w0"
+         data-description="Youtube video description"&gt;
+
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+    $(document).ready(function(){
+        $("#gallery").unitegallery({
+            gallery_theme: "slider"
+        });
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Динамічні елементи 3 пункту</title>
+</head>
+<body>
+<h3>Динамічні елементи 3 пункту</h3>
+<h2>Меню</h2>
+<a href="./lab5/menu.html">До сторінки</a>
+<img src="./lab5/report_images/menu_screen.png" style="width: 50%">
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Menu&lt;/title&gt;
+    &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"&gt;
+    &lt;link rel="stylesheet" href="/resources/demos/style.css"&gt;
+    &lt;script src="https://code.jquery.com/jquery-1.12.4.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $( function() {
+            $( "#menu" ).menu();
+        } );
+    &lt;/script&gt;
+    &lt;style&gt;
+        .ui-menu { width: 150px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul id="menu"&gt;
+    &lt;li&gt;&lt;div&gt;1&lt;/div&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;div&gt;2&lt;/div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;div&gt;2.1&lt;/div&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;div&gt;2.2&lt;/div&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;div&gt;2.3&lt;/div&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;div&gt;2.4&lt;/div&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;div&gt;3&lt;/div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;div&gt;3.1&lt;/div&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;div&gt;3.2&lt;/div&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;div&gt;3.2.1&lt;/div&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;div&gt;3.2.2&lt;/div&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;div&gt;3.2.3&lt;/div&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h2>Слайдер</h2>
+<a href="./lab5/slider.html">До сторінки</a>
+<img src="./lab5/report_images/slider_screen.png" style="width: 50%">
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Slider&lt;/title&gt;
+    &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"&gt;
+    &lt;link rel="stylesheet" href="/resources/demos/style.css"&gt;
+    &lt;script src="https://code.jquery.com/jquery-1.12.4.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="slider"&gt;&lt;/div&gt; &lt;br&gt;
+&lt;div id="output"&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+    $( function() {
+        let slider = $("#slider");
+        let output = document.getElementById("output");
+        slider.slider({
+            slide: function(event, ui) {
+                output.innerHTML = slider.slider("value");
+            }
+        });
+    } );
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+</body>
+</html>
