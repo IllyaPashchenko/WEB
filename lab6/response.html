@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Відповідь від сервера</title>
+</head>
+<body>
+<h3>Відповідь від сервера</h3>
+
+<p>Є форма для надіслання реєстраційної інформації на сервер. Цей запит обробляеться та виводиться на ектран відповідь "Incorrect input" якщо паролі не співпадають та "Correct input" якщо співпадають, та дата створення запиту</p>
+
+<img src="./lab6/images/response.png" style="width: 50%">
+
+<pre>
+<code>
+&lt;div class="container" style="width: 50%"&gt;
+    &lt;form method="post"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="email_signin"&gt;Email address&lt;/label&gt;
+            &lt;input name="email" type="email" class="form-control" id="email_signin" aria-describedby="emailHelp"&gt;
+            &lt;small id="emailHelp" class="form-text text-muted"&gt;We'll never share your email with anyone else.&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="password_singin"&gt;Password&lt;/label&gt;
+            &lt;input name="password" type="password" class="form-control" id="password_singin"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="confirm_password_signin"&gt;Confirm password&lt;/label&gt;
+            &lt;input name="confirm_password" type="password" class="form-control" id="confirm_password_signin"&gt;
+        &lt;/div&gt;
+        &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&lt;?php
+    if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm_password"])) {
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+        $email = $_POST['email'];
+
+        if ($password == $confirm_password) {
+            echo "Correct input " . date("d-m-Y");
+        } else {
+            echo "Incorrect input " . date("d-m-Y");
+        }
+    }
+?&gt;
+</code>
+</pre>
+</body>
+</html>
