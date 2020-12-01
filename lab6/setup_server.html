@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Налаштування сервера</title>
+</head>
+<body>
+<h3>Налаштування сервера</h3>
+<h4>
+    Пащенко Ілля
+</h4>
+<p>
+    Njinx <br>
+    Налаштував сервер в контейнері Docker, вказав в файлі docker-compose.yml посилання на образ nginx i php7, вказав порти на які контейнер виводить запити та "прокинув" файли в контейнер (вказав звідки контейнеру брати файли)<br>
+</p>
+<pre>
+<code>
+    version: "3.3"
+
+    services:
+
+    nginx:
+        image: nginx
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./:/var/www/html
+
+    php:
+        image: php:7.4-fpm
+        volumes:
+            - ./:/var/www/html
+</code>
+</pre>
+<p>Потім запустив сервер</p>
+<img src="./lab6/images/docker_start.png" style="width: 50%">
+<p>Файл налаштування сервера njinx - njinx.conf</p>
+<pre>
+<code>
+server {
+
+  listen 80;
+  server_name localhost;
+
+  access_log /var/log/nginx/front-access.log;
+  error_log   /var/log/nginx/front-error.log;
+
+  root /var/www/html/;
+  index index.html index.php;
+
+  location / {
+    try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  location ~ \.php$ {
+    fastcgi_pass php:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include /etc/nginx/fastcgi_params;
+  }
+
+}
+</code>
+</pre>
+<p>Це налаштування сервера за замовчуванням, за потреби треба змінити параметр index (вказати файл для старту програми)</p>
+
+<h4>Арсенюк Дмитро</h4>
+<p>
+    XAMPP - Apache <br>
+    Процес встановлення та запуску сервера:
+</p>
+<p>Заходимо на офійний сайт та завантажуємо XAMPP</p>
+<img src="./lab6/images/xampp1.png" style="width: 50%">
+<p>В мастері завантаження обираємо необхідні компоненти</p>
+<img src="./lab6/images/xampp2.png" style="width: 50%">
+<p>Обираємо директорію, в яку буде завантажено XAMPP</p>
+<img src="./lab6/images/xampp3.png" style="width: 50%">
+<p>Після завершення встановлення запускаємо XAMPP(бажано від імені адміністратора для коректної роботи)</p>
+<img src="./lab6/images/xampp4.png" style="width: 50%">
+<p>Заходимо в файл httpd.conf</p>
+<img src="./lab6/images/xampp5.png" style="width: 50%">
+<p>В цьому файлі (в моєму випадку) єдине що було потрібно налаштувати це обрати директорію файлі та налаштувати права доступу до неї написанням цих строк</p>
+<img src="./lab6/images/xampp6.png" style="width: 50%">
+<p>В записано директорію закидуємо проект сайту</p>
+<img src="./lab6/images/xampp7.png" style="width: 50%">
+<p>Запускаємо сервер</p>
+<img src="./lab6/images/xampp8.png" style="width: 50%">
+
+<p>Сторінка</p>
+<img src="./lab6/images/site_show.png" style="width: 50%">
+
+</body>
+</html>
