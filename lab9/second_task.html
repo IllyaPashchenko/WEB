@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Виконання 2 пункту</title>
+</head>
+<body>
+<h3>Виконання 2 пункту</h3>
+<h4>Арсенюк Дмитро</h4>
+<p>Завдання: Надати можливість обміну повідомленнями між двома користувачами. Передбачити такі функції, як перевірка поштової скриньки, створення та відправлення нового листа, перегляд та вилучення існуючого листа. Листи зберігати на сервері в XML-файлі. Операції пересилання даних виконувати асинхронно. Реалізувати функцію входу користувача за паролем.</p>
+<h5>Файл який бачить користувач(writeLetter.php)</h5>
+
+<pre>
+<code>
 &lt;?php
 session_start();
 ?&gt;
@@ -106,3 +120,125 @@ session_start();
 &lt;div id="received"&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
+</code>
+</pre>
+
+<h5>Файл обробник(mails.php)</h5>
+<pre>
+<code>
+&lt;?php
+
+$output =$_POST["sender"];
+
+if (isset($_POST["receiver"]) && isset($_POST["text"]) && isset($_POST["sender"])) {
+    $lsender = $_POST["sender"];
+    $lreceiver = $_POST['receiver'];
+    $ltext = $_POST['text'];
+    if ($lreceiver == "" || $ltext == "") {
+        $output = "0";
+    } else {
+        $xml = new DomDocument('2.0', 'utf-8');
+        $xml->load('data.xml');
+$mail = $xml->documentElement;
+$letter = $mail->appendChild($xml->createElement('letter'));
+$sender = $letter->appendChild($xml->createElement('sender'));
+$sender->appendChild($xml->createTextNode($lsender));
+$receiver = $letter->appendChild($xml->createElement('receiver'));
+$receiver->appendChild($xml->createTextNode($lreceiver));
+$text = $letter->appendChild($xml->createElement('text'));
+$text->appendChild($xml->createTextNode($ltext));
+$xml->formatOutput = true;
+$xml->save('data.xml');
+$output = "1";
+}
+}
+echo $output;
+</code>
+</pre>
+
+<h5>Результат</h5>
+<img src="./lab9/images/post.png" style="width: 50%"> <br>
+
+
+<h4>Пащенко Ілля</h4>
+<p>Завдання: Ajax-меню</p>
+<h5>Файл ajax_menu.js</h5>
+<pre>
+<code>
+$(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "menu.xml",
+        dataType: "xml",
+        complete: function (xml) {
+            const menu = [...xml.responseXML.getElementsByTagName("menuelement")]
+
+            menu.forEach(function (elem){
+                let a = document.createElement("a")
+                a.innerText = elem.getElementsByTagName("name")[0].textContent;
+                a.href = elem.getElementsByTagName("url")[0].textContent;
+                a.classList.add("dropdown-item");
+
+                document.getElementById("dropdown").appendChild(a);
+            })
+        }
+    })
+    $.ajax({
+        type: "GET",
+        url: "menu_age.xml",
+        dataType: "xml",
+        complete: function (xml) {
+            const menu = [...xml.responseXML.getElementsByTagName("menuelement")]
+
+            menu.forEach(function (elem){
+                let a = document.createElement("a")
+                a.innerText = elem.getElementsByTagName("name")[0].textContent;
+                a.href = elem.getElementsByTagName("url")[0].textContent;
+                a.classList.add("dropdown-item");
+
+                document.getElementById("dropdown_age").appendChild(a);
+            })
+        }
+    })
+})
+</code>
+</pre>
+<h5>Файл menu.xml</h5>
+<pre>
+<code>
+&lt;menu&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=strategy&lt;/url&gt;
+        &lt;name&gt;Стратегические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=tactics&lt;/url&gt;
+        &lt;name&gt;Тактические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=economy&lt;/url&gt;
+        &lt;name&gt;Экономические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=logic&lt;/url&gt;
+        &lt;name&gt;Логические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=military&lt;/url&gt;
+        &lt;name&gt;Военные&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=adventure&lt;/url&gt;
+        &lt;name&gt;Приключения&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=cards&lt;/url&gt;
+        &lt;name&gt;Карточные&lt;/name&gt;
+    &lt;/menuelement&gt;
+&lt;/menu&gt;
+</code>
+</pre>
+<h5>Результат</h5>
+<img src="./lab9/images/ajax_menu.png" style="width: 50%">
+</body>
+</html>

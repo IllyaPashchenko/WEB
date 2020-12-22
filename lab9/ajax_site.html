@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax-запити у власному сайті</title>
+</head>
+<body>
+<h3>Ajax-запити у власному сайті</h3>
+<p>У власному сайті ми використали ajax-запити для формування декількох меню</p>
+<img src="./lab9/images/ajax_site.png" style="width: 50%;"> <br>
+<h5>Файл ajax_menu.js</h5>
+<pre>
+<code>
+$(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "menu.xml",
+        dataType: "xml",
+        complete: function (xml) {
+            const menu = [...xml.responseXML.getElementsByTagName("menuelement")]
+
+            menu.forEach(function (elem){
+                let a = document.createElement("a")
+                a.innerText = elem.getElementsByTagName("name")[0].textContent;
+                a.href = elem.getElementsByTagName("url")[0].textContent;
+                a.classList.add("dropdown-item");
+
+                document.getElementById("dropdown").appendChild(a);
+            })
+        }
+    })
+    $.ajax({
+        type: "GET",
+        url: "menu_age.xml",
+        dataType: "xml",
+        complete: function (xml) {
+            const menu = [...xml.responseXML.getElementsByTagName("menuelement")]
+
+            menu.forEach(function (elem){
+                let a = document.createElement("a")
+                a.innerText = elem.getElementsByTagName("name")[0].textContent;
+                a.href = elem.getElementsByTagName("url")[0].textContent;
+                a.classList.add("dropdown-item");
+
+                document.getElementById("dropdown_age").appendChild(a);
+            })
+        }
+    })
+})
+</code>
+</pre>
+<h5>Файл menu.xml</h5>
+<pre>
+<code>
+&lt;menu&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=strategy&lt;/url&gt;
+        &lt;name&gt;Стратегические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=tactics&lt;/url&gt;
+        &lt;name&gt;Тактические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=economy&lt;/url&gt;
+        &lt;name&gt;Экономические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=logic&lt;/url&gt;
+        &lt;name&gt;Логические&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=military&lt;/url&gt;
+        &lt;name&gt;Военные&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=adventure&lt;/url&gt;
+        &lt;name&gt;Приключения&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?genre=cards&lt;/url&gt;
+        &lt;name&gt;Карточные&lt;/name&gt;
+    &lt;/menuelement&gt;
+&lt;/menu&gt;
+</code>
+</pre>
+<h5>Файл menu_age.xml</h5>
+<pre>
+<code>
+&lt;menu&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=3-5&lt;/url&gt;
+        &lt;name&gt;3-5&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=6-7&lt;/url&gt;
+        &lt;name&gt;6-7&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=8-12&lt;/url&gt;
+        &lt;name&gt;8-12&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=13-15&lt;/url&gt;
+        &lt;name&gt;13-15&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=16-17&lt;/url&gt;
+        &lt;name&gt;16-17&lt;/name&gt;
+    &lt;/menuelement&gt;
+    &lt;menuelement&gt;
+        &lt;url&gt;/?age=18&lt;/url&gt;
+        &lt;name&gt;18+&lt;/name&gt;
+    &lt;/menuelement&gt;
+&lt;/menu&gt;
+</code>
+</pre>
+<h5>Результат</h5>
+<img src="./lab9/images/ajax_menu.png" style="width: 50%">
+</body>
+</html>
